@@ -1,0 +1,28 @@
+conky.config = {
+-- This config draws the Date.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_CLOCK_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+
+	alignment = 'top_left',
+
+	minimum_width = 400,
+	minimum_height = 120,
+	maximum_width = 420,
+	gap_x = @@_X_OFFSET_@@,
+    gap_y = @@_Y_OFFSET_@@,
+
+	update_interval = 1,
+
+};
+
+conky.text = [[
+${color}${color0}${font Secret Code:pixelsize=42}${time %d} ${voffset -2}${color}${font Secret Code:pixelsize=28}${time  %B} ${time %Y}${font}
+${voffset 10}${offset 10}${font Secret Code:pixelsize=48}${time %A}${font}
+]];

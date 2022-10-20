@@ -1,0 +1,39 @@
+conky.config = {
+-- This config draws the processes using RAM.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+
+	alignment = 'top_left',
+
+	minimum_width = @@_WIDTH_@@,
+    minimum_height = @@_HEIGHT_@@,
+    maximum_width = @@_WIDTH_@@,
+	gap_x = @@_X_OFFSET_@@,
+    gap_y = @@_Y_OFFSET_@@,
+
+	update_interval = 5,
+
+	template0 = [[${GOTO 50}${color\1}${top_mem name \2}${alignr}${top_mem mem \2}%]],
+
+	--top_name_verbose = false,
+	no_buffers = true,
+};
+
+conky.text = [[
+${voffset 25}${GOTO 50}${font}RAM
+${GOTO 50}${font}Usage: ${font Droid Sans Mono:size=10}${memperc}% | ${mem}${font Droid Sans Mono:size=10}${alignr}[+${buffers} +${cached}]
+${voffset 27}${font Play:size=10}${template0 0 1}
+${template0 1 2}
+${template0 2 3}
+${template0 3 4}
+${template0 3 5}
+${image ~/.conky/ConkyBar/img/ram.png -p 0,15}
+${font}
+]];

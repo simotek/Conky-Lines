@@ -1,0 +1,44 @@
+conky.config = {
+-- This config draws the CPU core info.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+
+	alignment = 'top_left',
+
+	minimum_width = 295,
+	minimum_height = 165,
+	maximum_width = 313,
+	gap_x = 313,
+    gap_y = @@_Y_OFFSET_@@,
+
+
+	update_interval = 1,
+
+	top_cpu_separate = false,
+	cpu_avg_samples = 2,
+	--top_name_verbose = false,
+
+	template0 = [[${GOTO 50}${color\1}${top name \2}${alignr}${top cpu \2}%]],
+
+	lua_load = '~/.conky/ConkyBar/lua/cpu_graph.lua',
+	lua_draw_hook_pre = 'main_graph',
+};
+
+conky.text = [[
+${voffset 25}${GOTO 50}${font}CPU
+${GOTO 50}${font}Avg use: ${font Monofur:size=8}${cpu cpu0}%${alignr}${font}Freq: ${font Monofur:size=8}${freq_g} Ghz
+${voffset 27}${template0 0 1}
+${template0 1 2}
+${template0 2 3}
+${GOTO 40}${color2}${GOTO 50}${cpu cpu1}${GOTO 75}${cpu cpu2}${GOTO 98}${cpu cpu3}${GOTO 121}${cpu cpu4}${GOTO 144}${cpu cpu5}${GOTO 167}${cpu cpu6}${GOTO 190}${cpu cpu7}${GOTO 213}${cpu cpu8}${GOTO 236}${cpu cpu9}${GOTO 259}${cpu cpu10} ${GOTO 282}${cpu cpu11} ${GOTO 305}${cpu cpu12}
+${GOTO 85}${hwmon 0 temp 2}°C${GOTO 135}${hwmon 0 temp 3}°C${GOTO 185}${hwmon 0 temp 4}°C${GOTO 235}${hwmon 0 temp 5}°C
+${image ~/.conky/ConkyBar/img/cpu.png -p 0,15}
+${font}
+]];

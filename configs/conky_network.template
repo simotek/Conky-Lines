@@ -1,0 +1,41 @@
+conky.config = {
+-- This config draws the Network stats.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+
+	alignment = 'top_left',
+
+	minimum_width = @@_WIDTH_@@,
+    minimum_height = @@_HEIGHT_@@,
+    maximum_width = @@_WIDTH_@@,
+	gap_x = @@_X_OFFSET_@@,
+    gap_y = @@_Y_OFFSET_@@,
+
+	update_interval = 1,
+
+	lua_load = '~/.conky/ConkyBar/lua/net_graph.lua',
+	lua_draw_hook_pre = 'main_graph',
+
+};
+
+conky.text = [[
+${if_existing /proc/net/route eth0}${voffset 25}${GOTO 50}${font}Network
+${GOTO 50}${font}Public ip: ${font Monofur:size=8}texeci 36000 wget http://ipinfo.io/ip -qO - | tail${GOTO 210}${font}Sig: ${font Monofur:size=8}${wireless_link_qual_perc wlan0}%
+${GOTO 50}${font}Wired: ${font Monofur:size=8}${addr eth0}  ${font}Wireless: ${font Monofur:size=8}${addr wlan0}
+${voffset 74}${GOTO 50}${font}Recieve: ${font Monofur:size=8}${downspeed eth0}${GOTO 212}${font}Send: ${font Monofur:size=8}${upspeed eth0}
+${image ~/.conky/ConkyBar/img/networkhigh.png -p 0,15}${else}${if_existing /proc/net/route wlan0}${voffset 25}${GOTO 50}${font}Network
+${GOTO 50}${font}Public ip: ${font Monofur:size=8}${texeci 36000 wget http://ipinfo.io/ip -qO - | tail}${GOTO 210}${font}Sig: ${font Monofur:size=8}${wireless_link_qual_perc wlan0}%
+${GOTO 50}${font}Wired: ${font Monofur:size=8}${addr eth0}  ${font}Wireless: ${font Monofur:size=8}${addr wlan0}
+${voffset 74}${GOTO 50}${font}Recieve: ${font Monofur:size=8}${downspeed wlan0}${GOTO 212}${font}Send: ${font Monofur:size=8}${upspeed wlan0}
+${if_match "${wireless_link_qual_perc wlan0}"<"33"}${image ~/.conky/ConkyBar/img/networklow.png -p 0,15 -s 45x45}${else}${if_match "${wireless_link_qual_perc wlan0}"<"66"}${image ~/.conky/ConkyBar/img/networkmid.png -p 0,15}${else}${image ~/.conky/ConkyBar/img/networkhigh.png -p 0,15}${endif}${endif}${else}${voffset 27}${GOTO 50}${font}Network
+${GOTO 50}${font}No connection
+${image ~/.conky/ConkyBar/img/nonetwork.png -p 0,15}${endif}${endif}
+${font}
+]];

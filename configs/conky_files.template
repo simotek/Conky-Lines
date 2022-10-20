@@ -1,0 +1,34 @@
+conky.config = {
+-- This config draws the filesystem graph.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+
+	alignment = 'top_left',
+
+	minimum_width = @@_WIDTH_@@,
+    minimum_height = @@_HEIGHT_@@,
+    maximum_width = @@_WIDTH_@@,
+	gap_x = @@_X_OFFSET_@@,
+    gap_y = @@_Y_OFFSET_@@,
+
+	update_interval = 1,
+
+	lua_load = '~/.conky/ConkyBar/lua/files_ring.lua',
+	lua_draw_hook_pre = 'main',
+};
+
+conky.text = [[
+${voffset 25}${GOTO 50}${font}File System
+${GOTO 50}${font}Hdd: ${font Monofur:size=8}${fs_used /}${GOTO 200}${font}Temp: ${font Monofur:size=8}hddtemp /dev/sda °C
+${voffset 75}
+${GOTO 50}${font}Read: ${font Monofur:size=8}${diskio_read}${GOTO 200}${font}Write: ${font Monofur:size=8}${diskio_write}
+${image ~/.conky/ConkyBar/img/files.png -p 0,15}
+${font}
+]];

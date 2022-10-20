@@ -1,0 +1,28 @@
+conky.config = {
+-- This config draws the Clock.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_CLOCK_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+
+    alignment = 'top_left',
+
+	minimum_width = 600,
+	minimum_height = 120,
+	maximum_width = 820,
+	gap_x = @@_X_OFFSET_@@,
+    gap_y = @@_Y_OFFSET_@@,
+
+
+	update_interval = 1,
+
+};
+
+conky.text = [[
+${color}${font Secret Code:pixelsize=100}${time %H:%M:%S}${font}
+]];

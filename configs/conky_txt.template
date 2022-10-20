@@ -1,0 +1,25 @@
+conky.config = {
+-- This config draws the other text.
+
+-- This is a semi generated config file it is populated by conky_start
+-- The remaining config is set in global_config
+
+    @@_WINDOW_SETTINGS_@@
+
+    @@_FONT_CLOCK_SETTINGS_@@
+
+    @@_COLOR_SETTINGS_@@
+	alignment = 'top_left',
+
+	minimum_width = 100,
+	minimum_height = 30,
+	gap_x = @@_X_OFFSET_@@,
+	gap_y = @@_Y_OFFSET_@@,
+
+	update_interval = 36000,
+
+};
+
+conky.text = [[
+${font Trench:bold:pixelsize=34}${color0}openSUSE ${color3}Linux. ${color0}${font Trench:bold:pixelsize=14}${color4} Have alot of fun.${font}
+]];
